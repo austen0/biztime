@@ -56,7 +56,6 @@ class BizTime:
     # Default business hours configuration.
     self.biz_start = dt.time(9, 0)
     self.biz_end = dt.time(17, 0)
-    self.biz_end = conf['biz_end']
     self.weekend = []
     self.holidays = []
 
