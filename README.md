@@ -13,10 +13,23 @@ with various `datetime` objects.
 
 ## Reference
 
-### BizTime Class Functions
+### BizTime Class
 
 <pre>
-BizTime()<b>.time_diff</b>(<i>start, end</i>)
+<b>BizTime</b>(<i>conf</i>)
+	Accepts a configuration dict to modify start/end times, weekends, and
+	holidays.
+	&nbsp;
+	Default values:
+		'biz_start' - datetime.time(9, 0, 0)   # 9am
+		'biz_end'   - datetime.time(17, 0, 0)  # 5pm
+		'weekend'   - [5, 6]                   # Sat, Sun
+		'holidays'  - []                       # None
+	&nbsp;
+	Arg Types:
+		conf - dict
+	&nbsp;
+BizTime<b>.time_diff</b>(<i>start, end</i>)
 	Returns a datetime.timedelta object representing the number of working hours
 	between the start and end time.
 	&nbsp;
@@ -24,7 +37,7 @@ BizTime()<b>.time_diff</b>(<i>start, end</i>)
 		start - datetime.time
 		end   - datetime.time
 	&nbsp;
-BizTime()<b>.date_diff</b>(<i>start, end</i>)
+BizTime<b>.date_diff</b>(<i>start, end</i>)
 	Returns a datetime.timedelta object representing the number of working hours
 	between the start and end time, having omitted weekends and holidays.
 	&nbsp;
@@ -32,7 +45,7 @@ BizTime()<b>.date_diff</b>(<i>start, end</i>)
 		start - datetime.datetime
 		end   - datetime.datetime
 	&nbsp;
-BizTime()<b>.is_biz_day</b>(<i>date</i>)
+BizTime<b>.is_biz_day</b>(<i>date</i>)
 	Returns a bool indicating whether the given date is a weekend or holiday per
 	the users' config.
 	&nbsp;
@@ -64,12 +77,33 @@ BizTime()<b>.is_biz_day</b>(<i>date</i>)
 	Returns a datetime.date object from a given datetime object.
 	&nbsp;
 	Arg Types:
-		dt_in   - datetime.datetime
+		dt_in - datetime.datetime
 	&nbsp;
 <b>dt_to_time</b>(<i>dt_in</i>)
 	Returns a datetime.time object from a given datetime object.
 	&nbsp;
 	Arg Types:
-		dt_in   - datetime.datetime
+		dt_in - datetime.datetime
+	&nbsp;
+<b>start_of_day</b>(<i>date=None</i>)
+	Returns a a datetime.time object representing 12:00:00am. Returns full
+	datetime.datetime object if a date is passed to it.
+	&nbsp;
+	Arg Types:
+		date - datetime.date
+	&nbsp;
+<b>end_of_day</b>(<i>date=None</i>)
+	Returns a a datetime.time object representing 11:59:59pm. Returns full
+	datetime.datetime object if a date is passed to it.
+	&nbsp;
+	Arg Types:
+		date - datetime.date
+	&nbsp;
+<b>div_round</b>(<i>dividend, divisor</i>)
+	Divides two ints with proper rounding.
+	&nbsp;
+	Arg Types:
+		dividend - integer
+		divisor  - integer
 	&nbsp;
 </pre>
