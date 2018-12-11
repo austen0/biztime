@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
   name="biztime",
-  version="0.0.2",
+  version="0.0.5",
   author="austen0",
   author_email="austen@cas3y.com",
   description=("Utility for calculating the total working time between given "
