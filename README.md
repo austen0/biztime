@@ -7,9 +7,9 @@ with various `datetime` objects.
 
 ## Installation
 
-**COMING SOON** ~~Install and update using pip:~~
+Install and update using pip:
 
-~~`sudo pip install biztime`~~
+`sudo pip install biztime`
 
 ## Reference
 
