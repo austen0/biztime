@@ -27,7 +27,7 @@ with various `datetime` objects.
 		'holidays'  - []                       # None
 	&nbsp;
 	Arg Types:
-		conf - dict
+		conf - dictionary
 	&nbsp;
 BizTime<b>.time_diff</b>(<i>start, end</i>)
 	Returns a datetime.timedelta object representing the number of working hours

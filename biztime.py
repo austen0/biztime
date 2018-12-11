@@ -68,6 +68,8 @@ class BizTime:
     if 'holidays' in conf:
       self.holidays = conf['holidays']
 
+    self.full_day = self.time_diff(self.biz_start, self.biz_end)
+
   def time_diff(self, start, end):
     """Returns a timedelta between two times minus non-biz hours."""
     # Validate input.
@@ -125,7 +127,7 @@ class BizTime:
     date_range = create_date_range(date_range_start, date_range_end)
     for date in date_range:
       if self.is_biz_day(dt_to_date(date)):
-        biz_time += self.time_diff(start_of_day(), end_of_day())
+        biz_time += self.full_day
 
     return biz_time
 
