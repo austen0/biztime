@@ -7,9 +7,34 @@ with various `datetime` objects.
 
 ## Installation
 
-Install and update using pip:
+Install and update using [pip](https://pypi.org/project/biztime):
 
-`sudo pip install biztime`
+`pip install biztime`
+
+## Usage Example
+
+```python
+>>> import biztime
+>>> from datetime import date, datetime, time, timedelta
+>>> bt = biztime.BizTime({
+...   'biz_start': time(9, 0, 0),
+...   'biz_end': time(17, 0, 0),
+...   'weekend': [5, 6],
+...   'holidays': [date(2018, 12, 24), date(2018, 12, 25)],
+... })
+>>> bt.time_diff(time(13, 0, 0), time(18, 0, 0))
+datetime.timedelta(0, 14400)
+>>> bt.date_diff(datetime(2018, 12, 9, 8, 0, 0), datetime(2018, 12, 15, 8, 0, 0))
+datetime.timedelta(1, 57600)
+>>> time_delta = bt.date_diff(datetime(2018, 12, 9, 8, 0, 0), datetime(2018, 12, 15, 8, 0, 0))
+>>> biztime.convert_timedelta(time_delta, 'h')
+40
+>>> xmas_week = bt.date_diff(datetime(2018, 12, 23, 8, 0, 0), datetime(2018, 12, 29, 8, 0, 0))
+>>> biztime.convert_timedelta(xmas_week, 'h')
+24
+>>> bt.is_biz_day(date(2018, 12, 25))
+False
+```
 
 ## Reference
 
